@@ -25,9 +25,30 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 // Add your functions below:
 
+//This function will return true if the given array is a valid credit card and false if it is invalid
+const validateCred = arr => {
+    let total = 0;
+    let counter = 1;
 
+    //Loop through array. Use counter to get every other array place to multiple by 2
+    for(let i = arr.length-1; i >= 0; i--){
+        if(counter % 2 === 0){
+            arr[i] *= 2;
+            if(arr[i] > 9){
+                arr[i] -= 9;
+            }
+        }
+        total += arr[i];
+        counter++;
+    }
 
-
+    //Use total to check if the modulo 10 is 0
+    if(total % 10 === 0){
+      return true;
+    }else{
+      return false;
+    }
+}
 
 
 
