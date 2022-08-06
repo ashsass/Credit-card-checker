@@ -90,6 +90,7 @@ const idInvalidCardCompanies = arr => {
                 faultyCompanies.push('Discover');
             }
         }
+        return faultyCompanies;
     }
 }
 
