@@ -29,16 +29,19 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 const validateCred = arr => {
     let total = 0;
     let counter = 1;
+    let copyArray = [];
+
+    arr.forEach(element => copyArray.push(element));//Copy array so original doesn't mutate. I wanted to use .map but couldn't get correct results.
 
     //Loop through array. Use counter to get every other array place to multiple by 2
     for(let i = arr.length-1; i >= 0; i--){
         if(counter % 2 === 0){
-            arr[i] *= 2;
-            if(arr[i] > 9){
-                arr[i] -= 9;
+            copyArray[i] *= 2;
+            if(copyArray[i] > 9){
+                copyArray[i] -= 9;
             }
         }
-        total += arr[i];
+        total += copyArray[i];
         counter++;
     }
 
@@ -49,9 +52,6 @@ const validateCred = arr => {
       return false;
     }
 }
-
-//PROBLEM: THE FUNCTION ABOVE IS MUTATING THE ARRAY AND CAUSING PROBLEMS WITH OTHER FUNCTIONS!!!!!
-
 
 const findInvalidCards = arr => {
     let allInvalidCards = [];
