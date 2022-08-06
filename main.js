@@ -57,10 +57,12 @@ const findInvalidCards = arr => {
     let allInvalidCards = [];
 
     for(let i = 0; i < arr.length; i++){
-        if(validateCred(arr[i]) === true){
-            allInvalidCards += arr[i] + ', '
+        let currentCard = arr[i];
+        if(!validateCred(currentCard)){
+          allInvalidCards.push(currentCard);
         }
     }
+    return allInvalidCards;
 }
 
 
