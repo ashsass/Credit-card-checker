@@ -50,6 +50,19 @@ const validateCred = arr => {
     }
 }
 
+//PROBLEM: THE FUNCTION ABOVE IS MUTATING THE ARRAY AND CAUSING PROBLEMS WITH OTHER FUNCTIONS!!!!!
+
+
+const findInvalidCards = arr => {
+    let allInvalidCards = [];
+
+    for(let i = 0; i < arr.length; i++){
+        if(validateCred(arr[i]) === true){
+            allInvalidCards += arr[i] + ', '
+        }
+    }
+}
+
 
 
 
