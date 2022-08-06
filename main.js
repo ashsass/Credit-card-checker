@@ -65,6 +65,32 @@ const findInvalidCards = arr => {
     return allInvalidCards;
 }
 
+const idInvalidCardCompanies = arr => {
+    let faultyCompanies = [];
 
+    for(let i = 0; i<arr.length;i++){
+        let currFirstIndex = arr[i][0];
+        if(faultyCompanies.includes('Visa') === false){
+            if(currFirstIndex === 4){
+                faultyCompanies.push('Visa');
+            }
+        }
+        if(faultyCompanies.includes('Amex') === false){
+            if(currFirstIndex === 3){
+                faultyCompanies.push('Amex');
+            }
+        }
+        if(faultyCompanies.includes('Mastercard') === false){
+            if(currFirstIndex === 5){
+                faultyCompanies.push('Mastercard');
+            }
+        }
+        if(faultyCompanies.includes('Discover') === false){
+            if(currFirstIndex === 6){
+                faultyCompanies.push('Discover');
+            }
+        }
+    }
+}
 
 
